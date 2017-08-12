@@ -1,25 +1,39 @@
 @import "colors";
 
-#randomInt {
-  background-color: $main;
-  border: 1px solid black;
-  color: white;
-  padding: 5px;
-}
-
-#randomRange {
-  background-color: $secondary;
-  border: 1px solid black;
-  color: white;
-  padding: 5px;
-}
-
 body{
-  background: url(img/bg.jpg) no-repeat center center;
+  background: url(../img/bg.jpg) no-repeat center center;
   background-size: cover;
 }
 
+.site-inner{
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box; 
+  @media screen and (max-width: 1200px){
+    width: 100%;
+  }
+}
+
+.clear{
+  clear:both;
+}
 .page-content{
-  background: url(img/test.jpg) no-repeat center center;
-  background-size: cover;
+  padding: 50px 0;
+  height: 100vh;
+  text-align: center;
+}
+
+.btn {
+  background-color: $main;
+  border: 1px solid $secondary;
+  color: white;
+  padding: 5px;
+}
+
+.btn-2 {
+  background-color: $secondary;
+  border: 1px solid $main;
+  color: white;
+  padding: 5px;
 }
