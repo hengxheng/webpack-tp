@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 var extractPlugin = new ExtractTextPlugin({
    filename: 'main.css'
@@ -31,7 +32,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: extractPlugin.extract({
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader', 'sass-loader', 'postcss-loader']
                 })
             },
             {
@@ -59,6 +60,11 @@ module.exports = {
             jQuery: 'jquery'
         }),
         extractPlugin,
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                postcss: [autoprefixer]
+            }
+        }),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
